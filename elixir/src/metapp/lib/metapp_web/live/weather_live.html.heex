@@ -1,0 +1,38 @@
+<section style="display: flex; justify-content: flex-start; align-items: center; height: 100vh; flex-direction: column; padding-top: 20px;">
+  <style>
+    #weather-icon {
+      width: 150px;
+      height: 150px;
+      padding: 10px 10px;
+    }
+    #weather-info {
+      padding: 10px 20px; /* Adjust the padding as needed */
+      text-align: center;
+    }
+    #weather-button {
+      border: 2px solid orange; /* Orange border */
+      border-radius: 10px; /* Rounded corners */
+      padding: 10px 20px; /* Padding */
+      background-color: white; /* Background color */
+      cursor: pointer; /* Pointer cursor */
+    }
+  </style>
+  <div>
+    <form phx-change="select_icon">
+      <select name="icon">
+        <option value="fair_day.svg">Fair Day</option>
+        <option value="rain.svg">Rain</option>
+        <option value="cloudy.svg">Cloudy</option>
+      </select>
+    </form>
+  </div>
+  <div>
+    <img id="weather-icon" src={"images/weather/svg/#{@icon}"} alt="#{@icon}">
+  </div>
+   <div id="weather-info">
+    <p><%= @temperature %>°C</p>
+  </div>
+  <div>
+    <button id="weather-button" phx-click="fetch_weather" >Fetch Weather</button>
+  </div>
+</section>
